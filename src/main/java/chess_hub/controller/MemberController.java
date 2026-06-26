@@ -24,7 +24,7 @@ public class MemberController {
         return "memberform";
     }
 
-    @PostMapping("/register")
+    /*@PostMapping("/register")
     public String saveMember(@ModelAttribute Member member) {
 
         if (member.getId() != null) {
@@ -35,6 +35,7 @@ public class MemberController {
             existing.setPhoneNumber(member.getPhoneNumber());
             existing.setEmail(member.getEmail());
             existing.setRating(member.getRating());
+            System.out.println("ID = " + member.getId());
 
             repository.save(existing);
         } else {
@@ -43,7 +44,18 @@ public class MemberController {
 
         return "redirect:/members";
     }
+*/
 
+    @PostMapping("/register")
+    public String saveMember(@ModelAttribute Member member) {
+
+        System.out.println("ID = " + member.getId());
+        System.out.println("NAME = " + member.getFullName());
+
+        repository.save(member);
+
+        return "redirect:/members";
+    }
     @GetMapping
     public String listMembers(Model model) {
 
