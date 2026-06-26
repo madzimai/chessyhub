@@ -8,10 +8,13 @@
 
 <h1>Join Harare Chess Club ♟️</h1>
 
-<form th:action="@{/members/register}"
+<form
+        th:action="@{/members/register}"
+
+
       th:object="${member}"
       method="post">
-
+    <input type="hidden" th:field="*{id}">
     <div>
         <label for="fullName">Full Name</label><br>
         <input type="text" id="fullName" th:field="*{fullName}" />

@@ -27,7 +27,19 @@ public class MemberController {
     @PostMapping("/register")
     public String saveMember(@ModelAttribute Member member) {
 
-        repository.save(member);
+        if (member.getId() != null) {
+            Member existing = repository.findById(member.getId())
+                    .orElseThrow();
+
+            existing.setFullName(member.getFullName());
+            existing.setPhoneNumber(member.getPhoneNumber());
+            existing.setEmail(member.getEmail());
+            existing.setRating(member.getRating());
+
+            repository.save(existing);
+        } else {
+            repository.save(member);
+        }
 
         return "redirect:/members";
     }
@@ -41,5 +53,23 @@ public class MemberController {
         );
 
         return "memberlist";
+    }
+    @GetMapping("/edit/{id}")
+    public String editMember(@PathVariable Long id, Model model) {
+
+        Member member = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid member id: " + id));
+
+        model.addAttribute("member", member);
+
+        return "memberform";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteMember(@PathVariable Long id) {
+
+        repository.deleteById(id);
+
+        return "redirect:/members";
     }
 }
