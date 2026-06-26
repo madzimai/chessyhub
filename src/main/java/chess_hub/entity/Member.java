@@ -10,10 +10,11 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Long id;
 
-    private String fullName;
-    private String phoneNumber;
+    private String full_name;
+    private String phone_number;
     private String email;
     private Integer rating;
 
@@ -25,19 +26,19 @@ public class Member {
     }
 
     public String getFullName() {
-        return fullName;
+        return full_name;
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        this.full_name = full_name;
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phone_number;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phone_number;
     }
 
     public String getEmail() {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Harare Chess Club</title>
+</head>
+<body>
+
+<h1>Join Harare Chess Club ♟️</h1>
+
+<form th:action="@{/members/register}"
+      th:object="${member}"
+      method="post">
+
+    <div>
+        <label for="fullName">Full Name</label><br>
+        <input type="text" id="fullName" th:field="*{fullName}" />
+    </div>
+
+    <br>
+
+    <div>
+        <label for="phoneNumber">Phone Number</label><br>
+        <input type="text" id="phoneNumber" th:field="*{phoneNumber}" />
+    </div>
+
+    <br>
+
+    <div>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" th:field="*{email}" />
+    </div>
+
+    <br>
+
+    <div>
+        <label for="rating">Rating</label><br>
+        <input type="number" id="rating" th:field="*{rating}" />
+    </div>
+
+    <br>
+
+    <button type="submit">Register</button>
+
+</form>
+
+</body>
+</html>
