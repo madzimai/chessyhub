@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Join Club</title>
+    <meta charset="UTF-8">
+    <title>Join Harare Chess Club</title>
 </head>
 <body>
 
@@ -11,25 +12,35 @@
       th:object="${member}"
       method="post">
 
-    <label>Full Name</label>
-    <input type="text" th:field="*{fullName}">
-    <br><br>
+    <div>
+        <label for="fullName">Full Name</label><br>
+        <input type="text" id="fullName" th:field="*{fullName}" />
+    </div>
 
-    <label>Phone Number</label>
-    <input type="text" th:field="*{phoneNumber}">
-    <br><br>
+    <br>
 
-    <label>Email</label>
-    <input type="email" th:field="*{email}">
-    <br><br>
+    <div>
+        <label for="phoneNumber">Phone Number</label><br>
+        <input type="text" id="phoneNumber" th:field="*{phoneNumber}" />
+    </div>
 
-    <label>Rating</label>
-    <input type="number" th:field="*{rating}">
-    <br><br>
+    <br>
 
-    <button type="submit">
-        Register
-    </button>
+    <div>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" th:field="*{email}" />
+    </div>
+
+    <br>
+
+    <div>
+        <label for="rating">Rating</label><br>
+        <input type="number" id="rating" th:field="*{rating}" />
+    </div>
+
+    <br>
+
+    <button type="submit">Register</button>
 
 </form>
 
