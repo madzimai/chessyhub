@@ -2,6 +2,7 @@ package chess_hub.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Tournament {
@@ -59,5 +60,9 @@ public class Tournament {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<Member> getMembers() {
+        return List.of();
     }
 }

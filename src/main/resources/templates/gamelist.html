@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Games</title>
+</head>
+<body>
+
+<h1>Tournament Games ♟️</h1>
+
+<table th:frame="8">
+
+  <tr>
+    <th>Round</th>
+    <th>White</th>
+    <th>Black</th>
+    <th>Result</th>
+  </tr>
+
+  <tr th:each="g : ${games}">
+    <td th:text="${g.roundNumber}"></td>
+    <td th:text="${g.whitePlayer.fullName}"></td>
+    <td th:text="${g.blackPlayer.fullName}"></td>
+    <td th:text="${g.result}"></td>
+  </tr>
+
+</table>
+
+</body>
+</html>
