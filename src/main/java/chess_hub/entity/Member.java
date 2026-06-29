@@ -1,6 +1,4 @@
-package chess_hub.entity;
-
-import jakarta.persistence.Entity;
+package chess_hub.entity; import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,12 +8,14 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
     private Long id;
 
-    private String full_name;
-    private String phone_number;
+    private String fullName;
+
+    private String phoneNumber;
+
     private String email;
+
     private Integer rating;
 
     public Member() {
@@ -25,20 +25,24 @@ public class Member {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getFullName() {
-        return full_name;
+        return fullName;
     }
 
     public void setFullName(String fullName) {
-        this.full_name = full_name;
+        this.fullName = fullName;
     }
 
     public String getPhoneNumber() {
-        return phone_number;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
