@@ -19,13 +19,13 @@ public class TournamentController {
     @GetMapping
     public String list(Model model) {
         model.addAttribute("tournaments", repository.findAll());
-        return "tournament-list";
+        return "tournamentlist";
     }
 
     @GetMapping("/new")
     public String form(Model model) {
         model.addAttribute("tournament", new Tournament());
-        return "tournament-form";
+        return "tournamentform";
     }
 
     @PostMapping("/save")

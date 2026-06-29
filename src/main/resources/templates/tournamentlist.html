@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Tournaments</title>
+</head>
+<body>
+
+<h1>Tournaments ♟️</h1>
+
+<a href="/tournaments/new">➕ Create Tournament</a>
+
+<br><br>
+
+<table th:frame="5" >
+
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Venue</th>
+    <th>Date</th>
+    <th>Status</th>
+  </tr>
+
+  <tr th:each="t : ${tournaments}">
+    <td th:text="${t.id}"></td>
+    <td th:text="${t.name}"></td>
+    <td th:text="${t.venue}"></td>
+    <td th:text="${t.date}"></td>
+    <td th:text="${t.status}"></td>
+  </tr>
+
+</table>
+
+</body>
+</html>
