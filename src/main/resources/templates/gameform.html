@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Record Game</title>
+</head>
+<body>
+
+<h1>Record Game ♟️</h1>
+
+<form th:action="@{/games/save}" method="post">
+
+  <input type="hidden" name="tournamentId" th:value="${tournament.id}" />
+
+  <label>White Player</label>
+  <select name="whiteId">
+    <option th:each="m : ${members}"
+            th:value="${m.id}"
+            th:text="${m.fullName}">
+    </option>
+  </select>
+
+  <br><br>
+
+  <label>Black Player</label>
+  <select name="blackId">
+    <option th:each="m : ${members}"
+            th:value="${m.id}"
+            th:text="${m.fullName}">
+    </option>
+  </select>
+
+  <br><br>
+
+  <label>Result</label>
+  <select name="result">
+    <option value="WHITE_WIN">White Wins</option>
+    <option value="BLACK_WIN">Black Wins</option>
+    <option value="DRAW">Draw</option>
+  </select>
+
+  <br><br>
+
+  <label>Round</label>
+  <input type="number" name="roundNumber" />
+
+  <br><br>
+
+  <button type="submit">Save Game</button>
+
+</form>
+
+</body>
+</html>
