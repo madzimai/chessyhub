@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Leaderboard</title>
+</head>
+<body>
+
+<h1>Tournament Leaderboard 🏆</h1>
+
+<table th:frame="1">
+
+  <tr>
+    <th>Rank</th>
+    <th>Player</th>
+    <th>Played</th>
+    <th>Wins</th>
+    <th>Draws</th>
+    <th>Losses</th>
+    <th>Points</th>
+  </tr>
+
+  <tr th:each="leader, stat : ${leaders}">
+
+    <td th:text="${stat.count}"></td>
+    <td th:text="${leader.playerName}"></td>
+    <td th:text="${leader.played}"></td>
+    <td th:text="${leader.wins}"></td>
+    <td th:text="${leader.draws}"></td>
+    <td th:text="${leader.losses}"></td>
+    <td th:text="${leader.points}"></td>
+
+  </tr>
+
+</table>
+
+</body>
+</html>ml>
