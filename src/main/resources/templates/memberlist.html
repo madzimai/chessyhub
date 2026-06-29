@@ -1,3 +1,23 @@
+<form th:action="@{/members/search}" method="get">
+
+    <input
+            type="text"
+            name="keyword"
+            placeholder="Search member..."
+            th:value="${keyword}"/>
+
+    <button type="submit">
+        Search
+    </button>
+
+    <a th:href="@{/members}">
+        Clear
+    </a>
+
+</form>
+
+<br>
+
 <table th:frame="1">
 
     <tr>
