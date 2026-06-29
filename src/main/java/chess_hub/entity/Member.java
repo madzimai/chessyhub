@@ -1,7 +1,8 @@
-package chess_hub.entity; import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package chess_hub.entity; import jakarta.persistence.*;
+import lombok.Setter;
+
+import java.util.Collections;
+import java.util.List;
 
 @Entity
 public class Member {
@@ -16,6 +17,7 @@ public class Member {
 
     private String email;
 
+    @Setter
     private Integer rating;
 
     public Member() {
@@ -57,7 +59,18 @@ public class Member {
         return rating;
     }
 
-    public void setRating(Integer rating) {
-        this.rating = rating;
+    @ManyToMany
+    @JoinTable(
+            name = "member_tournament",
+            joinColumns = @JoinColumn(name = "member_id"),
+            inverseJoinColumns = @JoinColumn(name = "tournament_id")
+    )
+    private java.util.List<Tournament> tournaments = new java.util.ArrayList<>();
+    public List<Tournament> getTournaments() {
+        return tournaments;
+    }
+
+    public void setTournaments(List<Tournament> tournaments) {
+        this.tournaments = Collections.singletonList((Tournament) tournaments);
     }
 }

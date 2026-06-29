@@ -13,12 +13,14 @@
 
 <table th:frame="5" >
 
+
   <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Venue</th>
     <th>Date</th>
     <th>Status</th>
+    <th>Actions</th>
   </tr>
 
   <tr th:each="t : ${tournaments}">
@@ -27,6 +29,11 @@
     <td th:text="${t.venue}"></td>
     <td th:text="${t.date}"></td>
     <td th:text="${t.status}"></td>
+    <td>
+      <a th:href="@{/register/{id}(id=${t.id})}">
+        Register Players
+      </a>
+    </td>
   </tr>
 
 </table>

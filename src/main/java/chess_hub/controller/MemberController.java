@@ -90,6 +90,7 @@ public class MemberController {
 
         return "memberlist";
     }
+
     @GetMapping("/debug")
     @ResponseBody
     public String debug() {
