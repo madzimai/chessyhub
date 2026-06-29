@@ -72,4 +72,35 @@ public class MemberController {
 
         return "redirect:/members";
     }
+
+    @GetMapping("/search")
+    public String searchMembers(@RequestParam String keyword, Model model) {
+
+        var members = repository.search(keyword);
+
+        System.out.println("Keyword = " + keyword);
+        System.out.println("Results = " + members.size());
+
+        members.forEach(m ->
+                System.out.println(m.getFullName() + " - " + m.getEmail())
+        );
+
+        model.addAttribute("members", members);
+        model.addAttribute("keyword", keyword);
+
+        return "memberlist";
+    }
+    @GetMapping("/debug")
+    @ResponseBody
+    public String debug() {
+
+        repository.findAll().forEach(member -> {
+            System.out.println("ID: " + member.getId());
+            System.out.println("Name: '" + member.getFullName() + "'");
+            System.out.println("Email: '" + member.getEmail() + "'");
+            System.out.println("---------------------");
+        });
+
+        return "Check console";
+    }
 }
